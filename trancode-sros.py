@@ -88,5 +88,14 @@ for read in file_cfg :
 						del tab_LINE[index-1]
 						index-=1	
 						last_indentation = indentation - 1
+		else:
+			try:
+				if tab_LINE[1] == 'system':
+					tab_LINE = [] 
+					index =0 
+					last_indentation =0
+					indentation = 0
+			except:
+				pass
 				
 sys.stdout.close ()
