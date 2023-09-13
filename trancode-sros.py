@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 # Allow to transcode a SROS config file collected by admin display-config in a flat config file
 # The only limitation is do not have 4 space characters in your description as indentation is 
@@ -45,10 +45,10 @@ for read in file_cfg :
 						#manage line with create word differently
 						if 'create' in line.strip():
 							create_line = ' '.join(tab_LINE) + ' ' + line.strip()
-							print create_line
+							print(create_line)
 							line = line.replace(' create','').strip()
 						if index>0 and 'create' in tab_LINE[index-1]:
-							print ' '.join(tab_LINE)
+							print(' '.join(tab_LINE))
 							tab_LINE[index-1] = tab_LINE[index-1].replace(' create','')
 							
 						tab_LINE.append(line.strip())
@@ -63,9 +63,9 @@ for read in file_cfg :
 						if exit_found:							
 							del tab_LINE[index-1]
 							tab_LINE.append(line.strip())
-							print ' '.join(tab_LINE)
+							print(' '.join(tab_LINE))
 						else:
-							print ' '.join(tab_LINE)
+							print(' '.join(tab_LINE))
 							del tab_LINE[index-1]
 							tab_LINE.append(line.strip())
 					last_indentation = indentation
@@ -75,7 +75,7 @@ for read in file_cfg :
 				else:
 					if exit_found != True:
 						if last_indentation != indentation:
-							print ' '.join(tab_LINE)
+							print(' '.join(tab_LINE))
 							del tab_LINE[index-1]
 							index-=1
 							del tab_LINE[index-1]
