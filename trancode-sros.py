@@ -48,6 +48,8 @@ for read in file_cfg :
 							print(create_line)
 							line = line.replace(' create','').strip()
 						if 'pre-login-message' in line.strip():
+							create_line = ' '.join(tab_LINE) + ' ' + line.strip()
+							print(create_line)
 							continue
 
 						if index>0 and 'create' in tab_LINE[index-1]:
