@@ -47,6 +47,9 @@ for read in file_cfg :
 							create_line = ' '.join(tab_LINE) + ' ' + line.strip()
 							print(create_line)
 							line = line.replace(' create','').strip()
+						if 'pre-login-message' in line.strip():
+							continue
+
 						if index>0 and 'create' in tab_LINE[index-1]:
 							print(' '.join(tab_LINE))
 							tab_LINE[index-1] = tab_LINE[index-1].replace(' create','')
@@ -91,10 +94,10 @@ for read in file_cfg :
 		else:
 			try:
 				if tab_LINE[1] == 'system':
-					tab_LINE = [] 
-					index =0 
-					last_indentation =0
-					indentation = 0
+					tab_LINE = ['/configure'] 
+					index =1 
+					last_indentation =1
+					indentation = 1
 			except:
 				pass
 				
